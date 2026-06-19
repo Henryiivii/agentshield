@@ -3,7 +3,15 @@ export default function Dashboard() {
     <main className="min-h-screen bg-[#09090B] text-white p-8">
       <div className="max-w-7xl mx-auto">
         
-{/* Threat Intelligence & Agent Activity */}
+            AgentShield Dashboard
+          </h1>
+
+          <p className="text-zinc-400 mt-2">
+            Executive overview of revenue, security, and AI operations.
+          </p>
+        </div>
+
+        {/* Threat Intelligence & Agent Activity */}
 <div className="grid lg:grid-cols-2 gap-6 mt-8">
 
   <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
@@ -68,20 +76,13 @@ export default function Dashboard() {
       <div className="bg-zinc-800 rounded-xl p-4">
         Support Agent resolved customer ticket
       </div>
+       <div className="mb-10">
+          <h1 className="text-5xl font-bold">
 
     </div>
   </div>
 
 </div>
-        <div className="mb-10">
-          <h1 className="text-5xl font-bold">
-            AgentShield Dashboard
-          </h1>
-
-          <p className="text-zinc-400 mt-2">
-            Executive overview of revenue, security, and AI operations.
-          </p>
-        </div>
 
         {/* KPI Cards */}
         <div className="grid md:grid-cols-4 gap-6 mb-8">
