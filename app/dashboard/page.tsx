@@ -33,8 +33,13 @@ export default function Dashboard() {
       </div>
 
       <div className="flex justify-between">
+        <span>Pakistan</span>
+        <span className="text-orange-500">7%</span>
+      </div>
+      
+      div className="flex justify-between">
         <span>Other</span>
-        <span className="text-orange-500">9%</span>
+        <span className="text-orange-500">2%</span>
       </div>
 
     </div>
