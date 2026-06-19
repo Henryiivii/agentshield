@@ -2,6 +2,7 @@ export default function Dashboard() {
   return (
     <main className="min-h-screen bg-[#09090B] text-white p-8">
       <div className="max-w-7xl mx-auto">
+        
 {/* Threat Intelligence & Agent Activity */}
 <div className="grid lg:grid-cols-2 gap-6 mt-8">
 
@@ -37,7 +38,7 @@ export default function Dashboard() {
         <span className="text-orange-500">7%</span>
       </div>
       
-      div className="flex justify-between">
+      <div className="flex justify-between">
         <span>Other</span>
         <span className="text-orange-500">2%</span>
       </div>
