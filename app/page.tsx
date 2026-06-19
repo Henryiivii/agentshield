@@ -5,8 +5,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#09090B] text-white">
 
-      {/* Navbar */}
-      <nav className="border-b border-zinc-800">
+      
         <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
 
           <Link href="/" className="flex items-center gap-4">
