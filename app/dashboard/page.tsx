@@ -2,7 +2,71 @@ export default function Dashboard() {
   return (
     <main className="min-h-screen bg-[#09090B] text-white p-8">
       <div className="max-w-7xl mx-auto">
+{/* Threat Intelligence & Agent Activity */}
+<div className="grid lg:grid-cols-2 gap-6 mt-8">
 
+  <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+    <h2 className="text-2xl font-bold mb-6">
+      Top Threat Sources
+    </h2>
+
+    <div className="space-y-4">
+
+      <div className="flex justify-between">
+        <span>Russia</span>
+        <span className="text-orange-500">32%</span>
+      </div>
+
+      <div className="flex justify-between">
+        <span>China</span>
+        <span className="text-orange-500">27%</span>
+      </div>
+
+      <div className="flex justify-between">
+        <span>North Korea</span>
+        <span className="text-orange-500">18%</span>
+      </div>
+
+      <div className="flex justify-between">
+        <span>Iran</span>
+        <span className="text-orange-500">14%</span>
+      </div>
+
+      <div className="flex justify-between">
+        <span>Other</span>
+        <span className="text-orange-500">9%</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+    <h2 className="text-2xl font-bold mb-6">
+      AI Agent Activity
+    </h2>
+
+    <div className="space-y-4">
+
+      <div className="bg-zinc-800 rounded-xl p-4">
+        Revenue Agent recovered missed lead
+      </div>
+
+      <div className="bg-zinc-800 rounded-xl p-4">
+        Security Agent blocked suspicious login
+      </div>
+
+      <div className="bg-zinc-800 rounded-xl p-4">
+        Compliance Agent generated audit report
+      </div>
+
+      <div className="bg-zinc-800 rounded-xl p-4">
+        Support Agent resolved customer ticket
+      </div>
+
+    </div>
+  </div>
+
+</div>
         <div className="mb-10">
           <h1 className="text-5xl font-bold">
             AgentShield Dashboard
