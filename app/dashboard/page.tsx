@@ -2,7 +2,10 @@ export default function Dashboard() {
   return (
     <main className="min-h-screen bg-[#09090B] text-white p-8">
       <div className="max-w-7xl mx-auto">
-        
+
+        {/* Header */}
+        <div className="mb-10">
+          <h1 className="text-5xl font-bold">
             AgentShield Dashboard
           </h1>
 
@@ -11,106 +14,18 @@ export default function Dashboard() {
           </p>
         </div>
 
-        {/* Threat Intelligence & Agent Activity */}
-<div className="grid lg:grid-cols-2 gap-6 mt-8">
-
-  <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-    <h2 className="text-2xl font-bold mb-6">
-      Top Threat Sources
-    </h2>
-
-    <div className="space-y-4">
-
-      <div className="flex justify-between">
-        <span>Russia</span>
-        <span className="text-orange-500">32%</span>
-      </div>
-
-      <div className="flex justify-between">
-        <span>China</span>
-        <span className="text-orange-500">27%</span>
-      </div>
-
-      <div className="flex justify-between">
-        <span>North Korea</span>
-        <span className="text-orange-500">18%</span>
-      </div>
-
-      <div className="flex justify-between">
-        <span>Iran</span>
-        <span className="text-orange-500">14%</span>
-      </div>
-
-      <div className="flex justify-between">
-        <span>Pakistan</span>
-        <span className="text-orange-500">7%</span>
-      </div>
-      
-      <div className="flex justify-between">
-        <span>Other</span>
-        <span className="text-orange-500">2%</span>
-      </div>
-
-    </div>
-  </div>
-
-  <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-    <h2 className="text-2xl font-bold mb-6">
-      AI Agent Activity
-    </h2>
-
-    <div className="space-y-4">
-
-      <div className="bg-zinc-800 rounded-xl p-4">
-        Revenue Agent recovered missed lead
-      </div>
-
-      <div className="bg-zinc-800 rounded-xl p-4">
-        Security Agent blocked suspicious login
-      </div>
-
-      <div className="bg-zinc-800 rounded-xl p-4">
-        Compliance Agent generated audit report
-      </div>
-
-      <div className="bg-zinc-800 rounded-xl p-4">
-        Support Agent resolved customer ticket
-      </div>
-       <div className="mb-10">
-          <h1 className="text-5xl font-bold">
-
-    </div>
-  </div>
-
-</div>
-
         {/* KPI Cards */}
         <div className="grid md:grid-cols-4 gap-6 mb-8">
 
-          <Card
-            title="Revenue Recovered"
-            value="$12,840"
-          />
-
-          <Card
-            title="Threats Blocked"
-            value="1,248"
-          />
-
-          <Card
-            title="Protected Assets"
-            value="127"
-          />
-
-          <Card
-            title="AI Agents"
-            value="8"
-          />
+          <Card title="Revenue Recovered" value="$12,840" />
+          <Card title="Threats Blocked" value="1,248" />
+          <Card title="Protected Assets" value="127" />
+          <Card title="AI Agents" value="8" />
 
         </div>
 
-        {/* Main Panels */}
-        <div className="grid lg:grid-cols-2 gap-6">
+        {/* Charts */}
+        <div className="grid lg:grid-cols-2 gap-6 mb-6">
 
           <Panel title="Revenue Recovery Trend">
             <div className="h-64 rounded-2xl bg-zinc-800 flex items-center justify-center">
@@ -130,22 +45,23 @@ export default function Dashboard() {
 
         </div>
 
-        {/* Bottom Row */}
-        <div className="grid lg:grid-cols-2 gap-6 mt-6">
+        {/* Activity & Incidents */}
+        <div className="grid lg:grid-cols-2 gap-6 mb-6">
 
           <Panel title="Live Activity Feed">
-            <div className="space-y-4">
 
+            <div className="space-y-4">
               <Activity text="AI recovered missed customer lead." />
               <Activity text="Unauthorized login blocked." />
               <Activity text="Appointment booked automatically." />
               <Activity text="Security scan completed." />
               <Activity text="Revenue report generated." />
-
             </div>
+
           </Panel>
 
           <Panel title="Recent Security Incidents">
+
             <div className="space-y-4">
 
               <Incident
@@ -167,6 +83,63 @@ export default function Dashboard() {
               />
 
             </div>
+
+          </Panel>
+
+        </div>
+
+        {/* Threat Sources & AI Agents */}
+        <div className="grid lg:grid-cols-2 gap-6">
+
+          <Panel title="Top Threat Sources">
+
+            <div className="space-y-4">
+
+              <div className="flex justify-between">
+                <span>Russia</span>
+                <span className="text-orange-500">32%</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span>China</span>
+                <span className="text-orange-500">27%</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span>North Korea</span>
+                <span className="text-orange-500">18%</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span>Iran</span>
+                <span className="text-orange-500">14%</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span>Pakistan</span>
+                <span className="text-orange-500">7%</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span>Other</span>
+                <span className="text-orange-500">2%</span>
+              </div>
+
+            </div>
+
+          </Panel>
+
+          <Panel title="AI Agent Activity">
+
+            <div className="space-y-4">
+
+              <Activity text="Revenue Agent recovered missed lead." />
+              <Activity text="Security Agent blocked suspicious login." />
+              <Activity text="Compliance Agent generated audit report." />
+              <Activity text="Support Agent resolved customer ticket." />
+
+            </div>
+
           </Panel>
 
         </div>
@@ -185,13 +158,8 @@ function Card({
 }) {
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6">
-      <p className="text-zinc-400 text-sm">
-        {title}
-      </p>
-
-      <h2 className="text-3xl font-bold mt-2">
-        {value}
-      </h2>
+      <p className="text-zinc-400 text-sm">{title}</p>
+      <h2 className="text-3xl font-bold mt-2">{value}</h2>
     </div>
   );
 }
@@ -205,10 +173,7 @@ function Panel({
 }) {
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6">
-      <h2 className="text-xl font-bold mb-4">
-        {title}
-      </h2>
-
+      <h2 className="text-xl font-bold mb-4">{title}</h2>
       {children}
     </div>
   );
@@ -237,13 +202,10 @@ function Incident({
 }) {
   return (
     <div className={`border ${color} rounded-xl p-4`}>
-      <h3 className="font-semibold">
-        {title}
-      </h3>
-
-      <p className="text-zinc-400 mt-1">
-        {status}
-      </p>
+      <h3 className="font-semibold">{title}</h3>
+      <p className="text-zinc-400 mt-1">{status}</p>
     </div>
   );
 }
+
+
