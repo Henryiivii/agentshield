@@ -1,3 +1,22 @@
+import Image from "next/image";
+<div className="flex items-center gap-4 mb-8">
+  <Image
+    src="/logo.png"
+    alt="AgentShield"
+    width={60}
+    height={60}
+  />
+
+  <div>
+    <h2 className="text-2xl font-bold">
+      AgentShield
+    </h2>
+
+    <p className="text-zinc-400">
+      AI Security & Operations Platform
+    </p>
+  </div>
+</div>
 export default function Security() {
   const incidents = [
     {
