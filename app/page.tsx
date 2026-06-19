@@ -1,9 +1,10 @@
+
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Home() {
   return (
-   
+    <main className="min-h-screen bg-[#09090B] text-white">
+
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -54,25 +55,10 @@ export default function Home() {
 
             <div className="grid grid-cols-2 gap-5">
 
-              <Metric
-                title="Protected Endpoints"
-                value="12,487"
-              />
-
-              <Metric
-                title="Security Events"
-                value="1.2M"
-              />
-
-              <Metric
-                title="AI Actions"
-                value="248K"
-              />
-
-              <Metric
-                title="Platform Uptime"
-                value="99.99%"
-              />
+              <Metric title="Protected Endpoints" value="12,487" />
+              <Metric title="Security Events" value="1.2M" />
+              <Metric title="AI Actions" value="248K" />
+              <Metric title="Platform Uptime" value="99.99%" />
 
             </div>
 
@@ -114,25 +100,10 @@ export default function Home() {
 
         <div className="grid md:grid-cols-4 gap-6">
 
-          <Stat
-            value="12K+"
-            label="Protected Devices"
-          />
-
-          <Stat
-            value="248K+"
-            label="AI Actions"
-          />
-
-          <Stat
-            value="99.99%"
-            label="Uptime"
-          />
-
-          <Stat
-            value="1.2M"
-            label="Security Events"
-          />
+          <Stat value="12K+" label="Protected Devices" />
+          <Stat value="248K+" label="AI Actions" />
+          <Stat value="99.99%" label="Uptime" />
+          <Stat value="1.2M" label="Security Events" />
 
         </div>
 
@@ -163,15 +134,6 @@ export default function Home() {
 
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-zinc-800 mt-10">
-
-        <div className="max-w-7xl mx-auto px-8 py-10 text-zinc-500">
-          © 2026 AgentShield. All rights reserved.
-        </div>
-
-      </footer>
-
     </main>
   );
 }
@@ -185,13 +147,8 @@ function Metric({
 }) {
   return (
     <div className="bg-zinc-800 rounded-2xl p-5">
-      <p className="text-zinc-400 text-sm">
-        {title}
-      </p>
-
-      <h3 className="text-3xl font-bold mt-2">
-        {value}
-      </h3>
+      <p className="text-zinc-400 text-sm">{title}</p>
+      <h3 className="text-3xl font-bold mt-2">{value}</h3>
     </div>
   );
 }
@@ -205,13 +162,8 @@ function FeatureCard({
 }) {
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-      <h3 className="text-xl font-bold mb-4">
-        {title}
-      </h3>
-
-      <p className="text-zinc-400">
-        {description}
-      </p>
+      <h3 className="text-xl font-bold mb-4">{title}</h3>
+      <p className="text-zinc-400">{description}</p>
     </div>
   );
 }
@@ -225,13 +177,8 @@ function Stat({
 }) {
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 text-center">
-      <h3 className="text-4xl font-bold text-orange-500">
-        {value}
-      </h3>
-
-      <p className="text-zinc-400 mt-2">
-        {label}
-      </p>
+      <h3 className="text-4xl font-bold text-orange-500">{value}</h3>
+      <p className="text-zinc-400 mt-2">{label}</p>
     </div>
   );
 }
