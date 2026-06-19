@@ -3,62 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#09090B] text-white">
-
-      
-        <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-
-          <Link href="/" className="flex items-center gap-4">
-            <Image
-              src="/logo.png"
-              alt="AgentShield"
-              width={60}
-              height={60}
-            />
-
-            <div>
-              <h1 className="text-2xl font-bold">
-                AgentShield
-              </h1>
-
-              <p className="text-zinc-400 text-sm">
-                AI Security & Operations Platform
-              </p>
-            </div>
-          </Link>
-
-          <div className="hidden md:flex gap-8 items-center">
-            <Link href="/dashboard" className="hover:text-orange-500">
-              Dashboard
-            </Link>
-
-            <Link href="/security" className="hover:text-orange-500">
-              Security
-            </Link>
-
-            <Link href="/agents" className="hover:text-orange-500">
-              AI Agents
-            </Link>
-
-            <Link href="/pricing" className="hover:text-orange-500">
-              Pricing
-            </Link>
-
-            <Link href="/login" className="hover:text-orange-500">
-              Login
-            </Link>
-
-            <Link
-              href="/dashboard"
-              className="bg-orange-700 hover:bg-orange-800 px-5 py-2 rounded-xl font-semibold"
-            >
-              Launch Platform
-            </Link>
-          </div>
-
-        </div>
-      </nav>
-
+   
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
