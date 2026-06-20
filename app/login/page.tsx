@@ -1,11 +1,42 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../lib/firebase";
 
 export default function Login() {
+  const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async () => {
+    try {
+      setLoading(true);
+      setError("");
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      router.push("/dashboard");
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-[#09090B] flex items-center justify-center px-6">
       <div className="w-full max-w-md">
 
-        {/* Logo */}
         <div className="flex flex-col items-center mb-8">
           <Image
             src="/logo.png"
@@ -24,7 +55,6 @@ export default function Login() {
           </p>
         </div>
 
-        {/* Login Card */}
         <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-2xl">
 
           <h2 className="text-2xl font-bold text-white mb-6">
@@ -41,6 +71,10 @@ export default function Login() {
               <input
                 type="email"
                 placeholder="name@company.com"
+                value={email}
+                onChange={(e) =>
+                  setEmail(e.target.value)
+                }
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-xl p-3 text-white outline-none focus:border-orange-500"
               />
             </div>
@@ -53,14 +87,26 @@ export default function Login() {
               <input
                 type="password"
                 placeholder="••••••••••"
+                value={password}
+                onChange={(e) =>
+                  setPassword(e.target.value)
+                }
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-xl p-3 text-white outline-none focus:border-orange-500"
               />
             </div>
 
+            {error && (
+              <div className="bg-red-500/10 border border-red-500 rounded-xl p-3 text-red-400 text-sm">
+                {error}
+              </div>
+            )}
+
             <button
+              onClick={handleLogin}
+              disabled={loading}
               className="w-full bg-orange-600 hover:bg-orange-700 transition rounded-xl p-3 font-semibold text-white"
             >
-              Sign In
+              {loading ? "Signing In..." : "Sign In"}
             </button>
 
           </div>
@@ -84,7 +130,6 @@ export default function Login() {
 
         </div>
 
-        {/* Footer */}
         <p className="text-center text-zinc-600 text-sm mt-6">
           © 2026 AgentShield. All rights reserved.
         </p>
@@ -93,3 +138,4 @@ export default function Login() {
     </main>
   );
 }
+
