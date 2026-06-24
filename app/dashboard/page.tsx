@@ -242,13 +242,18 @@ export default function DashboardPage() {
           <Panel title="Revenue Recovery Trend">
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart
-                    data={
-                          company
-                      ? current.revenueChart
+                
+<LineChart
+  data={
+    company
+      ? companies[
+          company as keyof typeof companies
+        ].revenueChart
       : revenueData
   }
 >
+
+
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="month" />
                   <YAxis />
@@ -267,14 +272,18 @@ export default function DashboardPage() {
           <Panel title="Security Incident Trend">
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart
+
+<AreaChart
   data={
     company
-      ? current.threatChart
+      ? companies[
+          company as keyof typeof companies
+        ].threatChart
       : threatData
   }
 >
-                  <XAxis dataKey="day" />
+
+           <XAxis dataKey="day" />
                   <YAxis />
                   <Tooltip />
                   <Area
