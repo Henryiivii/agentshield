@@ -259,6 +259,66 @@ export default function DashboardPage() {
     </main>
   );
 }
+type CardProps = {
+  title: string;
+  value: string;
+};
+
+function Card({ title, value }: CardProps) {
+  return (
+    <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6">
+      <p className="text-zinc-400 text-sm">{title}</p>
+      <h2 className="text-3xl font-bold mt-2">{value}</h2>
+    </div>
+  );
+}
+
+type PanelProps = {
+  title: string;
+  children: React.ReactNode;
+};
+
+function Panel({ title, children }: PanelProps) {
+  return (
+    <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6">
+      <h2 className="text-xl font-bold mb-4">{title}</h2>
+      {children}
+    </div>
+  );
+}
+
+type ActivityProps = {
+  text: string;
+};
+
+function Activity({ text }: ActivityProps) {
+  return (
+    <div className="bg-zinc-800 rounded-xl p-4">
+      {text}
+    </div>
+  );
+}
+
+type IncidentProps = {
+  title: string;
+  status: string;
+  color: string;
+};
+
+function Incident({
+  title,
+  status,
+  color,
+}: IncidentProps) {
+  return (
+    <div className={`border ${color} rounded-xl p-4`}>
+      <h3 className="font-semibold">{title}</h3>
+      <p className="text-zinc-400 mt-1">{status}</p>
+    </div>
+  );
+}
+
+
 
 
 
