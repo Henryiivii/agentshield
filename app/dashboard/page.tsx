@@ -1,3 +1,18 @@
+"use client";
+
+import React, { useState } from "react";
+import {
+  LineChart,
+  Line,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+
 export default function DashboardPage() {
   const [company, setCompany] = useState("");
 
