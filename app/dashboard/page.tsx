@@ -13,6 +13,51 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+const revenueData = [
+  { month: "Jan", revenue: 4200 },
+  { month: "Feb", revenue: 5800 },
+  { month: "Mar", revenue: 7100 },
+  { month: "Apr", revenue: 9200 },
+  { month: "May", revenue: 11400 },
+  { month: "Jun", revenue: 12840 },
+];
+
+const threatData = [
+  { day: "Mon", threats: 34 },
+  { day: "Tue", threats: 51 },
+  { day: "Wed", threats: 67 },
+  { day: "Thu", threats: 43 },
+  { day: "Fri", threats: 72 },
+  { day: "Sat", threats: 49 },
+  { day: "Sun", threats: 88 },
+];
+
+const companies = {
+  roofing: {
+    name: "Acme Roofing LLC",
+    revenue: "$12,840",
+    threats: "1,248",
+    assets: "127",
+    score: "87/100",
+  },
+  hvac: {
+    name: "Atlanta HVAC Pros",
+    revenue: "$8,420",
+    threats: "892",
+    assets: "84",
+    score: "91/100",
+  },
+  dental: {
+    name: "Smith Dental Group",
+    revenue: "$5,670",
+    threats: "312",
+    assets: "41",
+    score: "96/100",
+  },
+};
+
+
+
 export default function DashboardPage() {
   const [company, setCompany] = useState("");
 
