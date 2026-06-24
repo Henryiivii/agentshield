@@ -32,6 +32,7 @@ const threatData = [
   { day: "Sun", threats: 88 },
 ];
 
+
 const companies = {
   roofing: {
     name: "Acme Roofing LLC",
@@ -39,22 +40,83 @@ const companies = {
     threats: "1,248",
     assets: "127",
     score: "87/100",
+
+    revenueChart: [
+      { month: "Jan", revenue: 4200 },
+      { month: "Feb", revenue: 5800 },
+      { month: "Mar", revenue: 7100 },
+      { month: "Apr", revenue: 9200 },
+      { month: "May", revenue: 11400 },
+      { month: "Jun", revenue: 12840 },
+    ],
+
+    threatChart: [
+      { day: "Mon", threats: 34 },
+      { day: "Tue", threats: 51 },
+      { day: "Wed", threats: 67 },
+      { day: "Thu", threats: 43 },
+      { day: "Fri", threats: 72 },
+      { day: "Sat", threats: 49 },
+      { day: "Sun", threats: 88 },
+    ],
   },
+
   hvac: {
     name: "Atlanta HVAC Pros",
     revenue: "$8,420",
     threats: "892",
     assets: "84",
     score: "91/100",
+
+    revenueChart: [
+      { month: "Jan", revenue: 2200 },
+      { month: "Feb", revenue: 3100 },
+      { month: "Mar", revenue: 4500 },
+      { month: "Apr", revenue: 5900 },
+      { month: "May", revenue: 7100 },
+      { month: "Jun", revenue: 8420 },
+    ],
+
+    threatChart: [
+      { day: "Mon", threats: 18 },
+      { day: "Tue", threats: 22 },
+      { day: "Wed", threats: 30 },
+      { day: "Thu", threats: 24 },
+      { day: "Fri", threats: 41 },
+      { day: "Sat", threats: 27 },
+      { day: "Sun", threats: 33 },
+    ],
   },
+
   dental: {
     name: "Smith Dental Group",
     revenue: "$5,670",
     threats: "312",
     assets: "41",
     score: "96/100",
+
+    revenueChart: [
+      { month: "Jan", revenue: 1200 },
+      { month: "Feb", revenue: 1800 },
+      { month: "Mar", revenue: 2500 },
+      { month: "Apr", revenue: 3400 },
+      { month: "May", revenue: 4700 },
+      { month: "Jun", revenue: 5670 },
+    ],
+
+    threatChart: [
+      { day: "Mon", threats: 6 },
+      { day: "Tue", threats: 8 },
+      { day: "Wed", threats: 12 },
+      { day: "Thu", threats: 10 },
+      { day: "Fri", threats: 15 },
+      { day: "Sat", threats: 7 },
+      { day: "Sun", threats: 9 },
+    ],
   },
 };
+
+
 
 
 
@@ -180,7 +242,13 @@ export default function DashboardPage() {
           <Panel title="Revenue Recovery Trend">
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={revenueData}>
+                <LineChart
+                    data={
+                          company
+                      ? current.revenueChart
+      : revenueData
+  }
+>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="month" />
                   <YAxis />
@@ -199,7 +267,13 @@ export default function DashboardPage() {
           <Panel title="Security Incident Trend">
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={threatData}>
+                <AreaChart
+  data={
+    company
+      ? current.threatChart
+      : threatData
+  }
+>
                   <XAxis dataKey="day" />
                   <YAxis />
                   <Tooltip />
