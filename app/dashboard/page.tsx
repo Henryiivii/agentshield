@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   LineChart,
   Line,
@@ -32,25 +32,111 @@ const threatData = [
   { day: "Sun", threats: 88 },
 ];
 
+const companies = {
+  roofing: {
+    name: "Acme Roofing LLC",
+    revenue: "$12,840",
+    threats: "1,248",
+    assets: "127",
+    score: "87/100",
+  },
+  hvac: {
+    name: "Atlanta HVAC Pros",
+    revenue: "$8,420",
+    threats: "892",
+    assets: "84",
+    score: "91/100",
+  },
+  dental: {
+    name: "Smith Dental Group",
+    revenue: "$5,670",
+    threats: "312",
+    assets: "41",
+    score: "96/100",
+  },
+};
+
+
+
+
 export default function DashboardPage() {
+  const [company, setCompany] = useState("roofing");
+
+  const current =
+    companies[company as keyof typeof companies];
+
   return (
+
     <main className="min-h-screen bg-[#09090B] text-white p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-10">
-          <h1 className="text-5xl font-bold">AgentShield Dashboard</h1>
+       
+<div className="mb-10">
+  <h1 className="text-5xl font-bold">
+    AgentShield Dashboard
+  </h1>
 
-          <p className="text-zinc-400 mt-2">
-            Executive overview of revenue, security, and AI operations.
-          </p>
-        </div>
+  <p className="text-zinc-400 mt-2">
+    Executive overview of revenue, security, and AI operations.
+  </p>
+</div>
+
+<div className="bg-blue-500/20 border border-blue-500 rounded-2xl p-4 mb-6">
+  <div className="flex justify-between items-center">
+
+    <div>
+      <p className="font-semibold">
+        Demo Environment
+      </p>
+
+      <p className="text-sm text-zinc-300">
+        Showing sample business data.
+      </p>
+    </div>
+
+    <select
+      value={company}
+      onChange={(e) => setCompany(e.target.value)}
+      className="bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2"
+    >
+      <option value="roofing">
+        Acme Roofing LLC
+      </option>
+
+      <option value="hvac">
+        Atlanta HVAC Pros
+      </option>
+
+      <option value="dental">
+        Smith Dental Group
+      </option>
+    </select>
+
+  </div>
+</div>
+
+<div className="mb-8">
+  <h2 className="text-3xl font-bold">
+    {current.name}
+  </h2>
+
+  <p className="text-zinc-400">
+    Protected by AgentShield
+  </p>
+</div>
+
+
 
         <div className="grid md:grid-cols-5 gap-6 mb-8">
           <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6">
             <p className="text-zinc-400 text-sm">Security Score</p>
 
             <h2 className="text-3xl font-bold mt-2 text-green-500">
-              87/100
-            </h2>
+  {current.score}
+</h2>
+
+<Card title="Revenue Recovered" value={current.revenue} />
+<Card title="Threats Blocked" value={current.threats} />
+<Card title="Protected Assets" value={current.assets} />
 
             <p className="text-green-400 text-sm mt-2">Low Risk</p>
 
